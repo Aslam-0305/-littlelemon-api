@@ -1,0 +1,47 @@
+[
+  {
+    "model": "restaurant.booking",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "reservation_date": "2024-12-13",
+      "reservation_slot": 18
+    }
+  },
+  {
+    "model": "restaurant.booking",
+    "pk": 2,
+    "fields": {
+      "first_name": "Sarah",
+      "reservation_date": "2024-12-13",
+      "reservation_slot": 19
+    }
+  },
+  {
+    "model": "restaurant.booking",
+    "pk": 3,
+    "fields": {
+      "first_name": "Mike",
+      "reservation_date": "2024-12-14",
+      "reservation_slot": 12
+    }
+  },
+  {
+    "model": "restaurant.booking",
+    "pk": 4,
+    "fields": {
+      "first_name": "Emma",
+      "reservation_date": "2024-12-14",
+      "reservation_slot": 15
+    }
+  },
+  {
+    "model": "restaurant.booking",
+    "pk": 5,
+    "fields": {
+      "first_name": "David",
+      "reservation_date": "2024-12-15",
+      "reservation_slot": 20
+    }
+  }
+]

@@ -1,0 +1,253 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-01-01T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "wrk_littlelemon",
+      "_type": "workspace",
+      "name": "Little Lemon API",
+      "description": "Django REST Framework API for Little Lemon Restaurant"
+    },
+    {
+      "_id": "env_base",
+      "_type": "environment",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://127.0.0.1:8000",
+        "auth_token": ""
+      }
+    },
+    {
+      "_id": "req_register",
+      "_type": "request",
+      "name": "1. Register User",
+      "method": "POST",
+      "url": "{{ base_url }}/auth/users/",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"testuser\",\n  \"password\": \"testpass123\",\n  \"email\": \"test@example.com\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_login",
+      "_type": "request",
+      "name": "2. Login (Get Token)",
+      "method": "POST",
+      "url": "{{ base_url }}/auth/token/login/",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"username\": \"testuser\",\n  \"password\": \"testpass123\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_menu_list",
+      "_type": "request",
+      "name": "Menu - List All",
+      "method": "GET",
+      "url": "{{ base_url }}/api/menu/",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ auth_token }}"
+        }
+      ]
+    },
+    {
+      "_id": "req_menu_create",
+      "_type": "request",
+      "name": "Menu - Create",
+      "method": "POST",
+      "url": "{{ base_url }}/api/menu/",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"title\": \"Greek Salad\",\n  \"price\": 12.99,\n  \"inventory\": 50\n}"
+      },
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ auth_token }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_menu_detail",
+      "_type": "request",
+      "name": "Menu - Get Single",
+      "method": "GET",
+      "url": "{{ base_url }}/api/menu/1/",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ auth_token }}"
+        }
+      ]
+    },
+    {
+      "_id": "req_menu_update",
+      "_type": "request",
+      "name": "Menu - Update (PUT)",
+      "method": "PUT",
+      "url": "{{ base_url }}/api/menu/1/",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"title\": \"Greek Salad Updated\",\n  \"price\": 13.99,\n  \"inventory\": 45\n}"
+      },
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ auth_token }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_menu_patch",
+      "_type": "request",
+      "name": "Menu - Partial Update (PATCH)",
+      "method": "PATCH",
+      "url": "{{ base_url }}/api/menu/1/",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"price\": 14.99\n}"
+      },
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ auth_token }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_menu_delete",
+      "_type": "request",
+      "name": "Menu - Delete",
+      "method": "DELETE",
+      "url": "{{ base_url }}/api/menu/1/",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ auth_token }}"
+        }
+      ]
+    },
+    {
+      "_id": "req_booking_list",
+      "_type": "request",
+      "name": "Booking - List All",
+      "method": "GET",
+      "url": "{{ base_url }}/api/bookings/",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ auth_token }}"
+        }
+      ]
+    },
+    {
+      "_id": "req_booking_create",
+      "_type": "request",
+      "name": "Booking - Create",
+      "method": "POST",
+      "url": "{{ base_url }}/api/bookings/",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"first_name\": \"John\",\n  \"reservation_date\": \"2024-12-15\",\n  \"reservation_slot\": 18\n}"
+      },
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ auth_token }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_booking_detail",
+      "_type": "request",
+      "name": "Booking - Get Single",
+      "method": "GET",
+      "url": "{{ base_url }}/api/bookings/1/",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ auth_token }}"
+        }
+      ]
+    },
+    {
+      "_id": "req_booking_update",
+      "_type": "request",
+      "name": "Booking - Update (PUT)",
+      "method": "PUT",
+      "url": "{{ base_url }}/api/bookings/1/",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"first_name\": \"John Updated\",\n  \"reservation_date\": \"2024-12-15\",\n  \"reservation_slot\": 19\n}"
+      },
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ auth_token }}"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "_id": "req_booking_delete",
+      "_type": "request",
+      "name": "Booking - Delete",
+      "method": "DELETE",
+      "url": "{{ base_url }}/api/bookings/1/",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ auth_token }}"
+        }
+      ]
+    },
+    {
+      "_id": "req_user_profile",
+      "_type": "request",
+      "name": "Get User Profile",
+      "method": "GET",
+      "url": "{{ base_url }}/api/user/",
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Token {{ auth_token }}"
+        }
+      ]
+    }
+  ]
+}

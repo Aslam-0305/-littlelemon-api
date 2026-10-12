@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Book a Table{% endblock %}
+
+{% block content %}
+<div class="booking-section">
+    <h2>Book a Table</h2>
+    <p>Reserve your table at Little Lemon</p>
+
+    <div class="booking-container">
+        <form id="booking-form" class="booking-form">
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reservation_date">Reservation Date:</label>
+                <input type="date" id="reservation_date" name="reservation_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reservation_slot">Reservation Time:</label>
+                <select id="reservation_slot" name="reservation_slot" required>
+                    <option value="">Select a time slot</option>
+                    <option value="10">10:00</option>
+                    <option value="11">11:00</option>
+                    <option value="12">12:00</option>
+                    <option value="13">13:00</option>
+                    <option value="14">14:00</option>
+                    <option value="15">15:00</option>
+                    <option value="16">16:00</option>
+                    <option value="17">17:00</option>
+                    <option value="18">18:00</option>
+                    <option value="19">19:00</option>
+                    <option value="20">20:00</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn">Book Table</button>
+        </form>
+
+        <div class="current-bookings">
+            <h3>Current Reservations for Selected Date</h3>
+            <div id="bookings-list">
+                <p>Select a date to view reservations</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="message" class="message"></div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/book.js' %}"></script>
+{% endblock %}

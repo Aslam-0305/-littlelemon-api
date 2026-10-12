@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h2>Welcome to Little Lemon</h2>
+    <p>Experience authentic Mediterranean cuisine in a warm and inviting atmosphere.</p>
+    <a href="{% url 'book' %}" class="btn">Book a Table</a>
+</div>
+
+<section class="features">
+    <div class="feature">
+        <h3>Fresh Ingredients</h3>
+        <p>We use only the freshest local ingredients in all our dishes.</p>
+    </div>
+    <div class="feature">
+        <h3>Authentic Recipes</h3>
+        <p>Traditional Mediterranean recipes passed down through generations.</p>
+    </div>
+    <div class="feature">
+        <h3>Cozy Atmosphere</h3>
+        <p>A warm and welcoming environment for you and your loved ones.</p>
+    </div>
+</section>
+{% endblock %}

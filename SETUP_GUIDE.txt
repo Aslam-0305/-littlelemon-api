@@ -1,0 +1,89 @@
+LITTLE LEMON RESTAURANT BOOKING SYSTEM - QUICK SETUP GUIDE
+============================================================
+
+IMPORTANT: Read this before running the project!
+
+STEP 1: CREATE MYSQL DATABASE
+------------------------------
+Open MySQL command line or MySQL Workbench and run:
+
+    CREATE DATABASE littlelemon;
+
+STEP 2: UPDATE DATABASE CREDENTIALS (if needed)
+-----------------------------------------------
+Open: littlelemon/settings.py
+
+Find the DATABASES section (around line 83) and update:
+    'USER': 'root',              # Your MySQL username
+    'PASSWORD': 'password',      # Your MySQL password
+
+STEP 3: INSTALL DEPENDENCIES
+-----------------------------
+In the project directory (where manage.py is located), run:
+
+    pipenv shell
+    pipenv install
+
+STEP 4: RUN MIGRATIONS
+----------------------
+    python manage.py makemigrations
+    python manage.py migrate
+
+STEP 5: CREATE ADMIN USER (Optional)
+-------------------------------------
+    python manage.py createsuperuser
+
+STEP 6: RUN SERVER
+------------------
+    python manage.py runserver
+
+STEP 7: TEST THE APPLICATION
+----------------------------
+Visit: http://127.0.0.1:8000/book/
+
+Try these actions:
+✓ The current date should be automatically selected
+✓ Click the date field to open a date picker
+✓ Fill in your first name
+✓ Select a time slot
+✓ Click "Book Table"
+✓ Try booking the same time again - should be disabled
+✓ Change the date to see different bookings
+✓ Visit /reservations/ to see all bookings as JSON
+
+GRADING CHECKLIST FOR PEER REVIEWERS:
+--------------------------------------
+[✓] App added to INSTALLED_APPS in settings.py
+[✓] Database configuration updated in settings.py
+[✓] Migrations performed
+[✓] Three fields in booking form (First name, Date, Time)
+[✓] Date selector opens when clicking date field
+[✓] All bookings available as JSON on /reservations/
+[✓] Duplicate booking prohibited
+[✓] Changing date refreshes booking data
+[✓] Booked slots are unavailable/grey
+[✓] Can display bookings for specific date via API
+[✓] "No Booking" message for dates with no reservations
+[✓] Fetch API used to retrieve data
+[✓] Current date automatically selected on load
+
+TROUBLESHOOTING:
+----------------
+If you get "Access denied for user 'root'@'localhost'":
+  → Update the password in littlelemon/settings.py
+
+If you get "Unknown database 'littlelemon'":
+  → Run: CREATE DATABASE littlelemon; in MySQL
+
+If mysqlclient won't install:
+  → Windows: pip install mysqlclient
+  → Mac: brew install mysql; pipenv install mysqlclient
+  → Linux: sudo apt-get install python3-dev default-libmysqlclient-dev
+
+CONTACT:
+--------
+If you encounter any issues during review, the most common cause
+is MySQL credentials. Please check your local MySQL username and
+password and update settings.py accordingly.
+
+Good luck with your review!

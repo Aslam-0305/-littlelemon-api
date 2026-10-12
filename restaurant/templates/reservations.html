@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}All Reservations{% endblock %}
+
+{% block content %}
+<div class="reservations-section">
+    <h2>All Reservations (JSON Data)</h2>
+    <div class="json-container">
+        <pre id="json-display">{{ bookings|safe }}</pre>
+    </div>
+</div>
+{% endblock %}
